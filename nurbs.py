@@ -74,12 +74,17 @@ class Nurbs(object):
             self.knot_vector[i] = t
             i += 1
 
+    def set_knot_vector(self, knot_vector):
+        assert(len(knot_vector) == len(self.knot_vector))
+        self.knot_vector = copy.deepcopy(knot_vector)
+
 if __name__ == "__main__":
-    n_points = 7
+    n_points = 6
     order = 3
 
     nurbs = Nurbs(n_points, order)
-    nurbs.set_template(True, True)
+    nurbs.set_template(False, False)
+    # nurbs.set_knot_vector([0,1,2,3.8,4,5])
     
     overall_t_range = nurbs.get_overall_t_range()
     valid_t_range = nurbs.get_valid_t_range()
