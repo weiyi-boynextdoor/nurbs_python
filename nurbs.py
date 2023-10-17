@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import copy
 
-class Nurbs(object):
+class Nurbs:
     def __init__(self, control_point_num, order) -> None:
         self.control_point_num = control_point_num
         self.order = order
@@ -85,12 +85,12 @@ class Nurbs(object):
         self.knot_vector = copy.deepcopy(knot_vector)
 
 if __name__ == "__main__":
-    n_points = 4
-    order = 4
+    n_points = 5
+    order = 3
 
     nurbs = Nurbs(n_points, order)
-    nurbs.set_template(True, False)
-    # nurbs.set_knot_vector([0,1,2,3.5,4,5,6,7])
+    nurbs.set_template(False, False)
+    # nurbs.set_knot_vector([0,1,2,3.5,4,5,6,7,8])
     
     overall_t_range = nurbs.get_overall_t_range()
     valid_t_range = nurbs.get_valid_t_range()
